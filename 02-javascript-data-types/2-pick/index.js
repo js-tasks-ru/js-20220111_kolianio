@@ -5,5 +5,9 @@
  * @returns {object} - returns the new object
  */
 export const pick = (obj, ...fields) => {
-
+  let futureObj = [];
+  fields.forEach(prop => {
+    futureObj.push([prop, obj[prop]]);
+  });
+  return Object.fromEntries(futureObj);
 };

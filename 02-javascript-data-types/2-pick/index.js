@@ -7,7 +7,9 @@
 export const pick = (obj, ...fields) => {
   let futureObj = [];
   fields.forEach(prop => {
-    futureObj.push([prop, obj[prop]]);
+    if (Object.keys(obj).includes(prop)) {
+      futureObj.push([prop, obj[prop]]);
+    }
   });
   return Object.fromEntries(futureObj);
 };
